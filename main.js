@@ -1,1 +1,5 @@
-alert('this script is working! yay')
+document.addEventListener('alpine:init', () => {
+    Alpine.directive('alert', (el, {exp}) => {
+        alert('testing')
+    })
+})
