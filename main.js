@@ -22,28 +22,6 @@ document.addEventListener('alpine:init', () => {
         el.setAttribute('x-for', expression)
     })
 
-    /*
-    Alpine.directive('tag', (el, {expression}) => {
-        let copy = setTag(el, expression)
-        copy.removeAttribute('x-tag')
-        el.parentNode.replaceChild(copy, el)
-    })
-    */
-
-    /*
-
-    Alpine.directive('template', (el) => {
-        let copy = setTemplate(el)
-        copy.removeAttribute('x-template')
-        el.parentNode.replaceChild(copy, el)
-    })
-
-    Alpine.directive('foreach', (el ,{expression}) => {
-        let copy = setTemplate(el)
-        copy
-    })
-    */
-
     Alpine.directive('mods', (el, {expression}) => {
         let attrs = [...el.attributes]
             .filter(item => item.nodeName.split('-')[0] == 'x')
