@@ -1,8 +1,4 @@
 document.addEventListener('alpine:init', () => {
-    Alpine.directive('alert', (el, {expression}) => {
-        alert(expression)
-    })
-
     const setTemplate = (name, action = () => {}) => {
         console.log('calledDirective')
         Alpine.directive(name, (el, {expression}) => {
