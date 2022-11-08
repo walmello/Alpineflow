@@ -1,6 +1,5 @@
 document.addEventListener('alpine:init', () => {
     const setTemplate = (name, action = () => {}) => {
-        console.log('calledDirective')
         Alpine.directive(name, (el, {expression}) => {
             let copy = document.createElement('template')
             copy.innerHTML = el.innerHTML;
@@ -8,13 +7,14 @@ document.addEventListener('alpine:init', () => {
                 copy.setAttribute(attr.nodeName, attr.nodeValue)
             })
             copy.removeAttribute('x-'+name)
-            action(el, expression)
+            action(copy, expression)
             el.parentNode.replaceChild(copy, el)
         })
     }
 
     setTemplate('template')
     setTemplate('foreach', (el, expression) => {
+        console.log(expression)
         el.setAttribute('x-for', expression)
     })
 
